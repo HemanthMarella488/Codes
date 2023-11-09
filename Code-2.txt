@@ -1,0 +1,32 @@
+import java.util.*;
+
+class Solution {
+
+public int solution (int N) { 
+   String s = String.valueOf(N);
+
+   if (N>0){
+
+        s= s.replaceFirst("5","");
+          return Integer.parseInt(s);
+
+        }else{
+
+             StringBuilder sb = new StringBuilder(s);
+
+        sb.reverse();
+
+        s = new String(sb);
+
+        s = s.replaceFirst("5",""); 
+
+        StringBuilder sb1 = new StringBuilder(s);
+
+        sb1.reverse(); 
+
+        return Integer.parseInt(new String(sb1));
+
+        }
+
+   }
+}

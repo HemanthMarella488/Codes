@@ -1,0 +1,19 @@
+SELECT tg.name,
+
+COUNT(tc.id) as all_test_cases,
+
+SUM(CASE WHEN tc.status = 'OK' then 1 ELSE 0 END) AS passed_test_cases,
+
+SUM(CASE WHEN tc.status = 'OK' then tg.test_value ELSE 0 END) AS total_value
+
+FROM test_groups tg
+
+LEFT JOIN
+
+test_cases tc ON tg.name =tc.group_name
+
+GROUP BY
+
+tg.name
+
+ORDER BY total_value DESC, tg.name;
